@@ -1,0 +1,81 @@
+<div id="login-wrapper">
+    <div data-ng-cloak>
+        <div class="container-fluid container" id="login-page">
+            <div class="row">
+                <div class="col-xs-10 col-sm-8 col-md-6 center">
+                    <div class="login-form-wrapper">
+                        <h2 class="text-center text-uppercase red">Log in</h2>
+                        <!-- <p class="text-center">Ultimate fantasy Football League</p> -->
+                        <!-- <div class="form-logo-wrapper center text-center">
+                            <img src="images/draftbracketlogopng.png" class="form-logo" alt="logo"/>
+                        </div> -->
+                        <form class="form-horizontal" name="loginCtrl.form" id="login">
+                            <fieldset>
+                                <div class="form-group" show-errors>
+                                    <div class="col-xs-12">
+                                        <!-- <input name="email" ng-model="user.email" type="email" class="form-control" maxlength="255" ng-required="true" placeholder="Email" autofocus tabindex="1" /> -->
+                                        <input id="email" name="email" ng-model="user.email" type="email" class="form-control" maxlength="255" ng-required="true" placeholder="Email" tabindex="1" />
+                                        <div ng-show="loginCtrl.form.$submitted || loginCtrl.form.email.$touched">
+                                            <span ng-show="loginCtrl.form.email.$error.required" class="help-block">Email is missing</span>
+                                            <span ng-show="loginCtrl.form.email.$error.email" class="help-block">Email is invalid</span>
+                                            <span ng-show="loginCtrl.form.email.$error.maxlength" class="help-block">Email is too long</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" show-errors>
+                                    <div class="col-xs-12">
+                                        <input id="password" name="password" uib-tooltip="Capslock is on" tooltip-trigger="focus" tooltip-enable="isCapsLockOn" ng-model="user.password" class="form-control" minlength="8" maxlength="255" type="{{loginCtrl.passwordInputType()}}" ng-required="true" placeholder="Password" tabindex="2" />
+                                        <div ng-show="loginCtrl.form.$submitted || loginCtrl.form.password.$touched">
+                                            <span ng-show="loginCtrl.form.password.$error.required" class="help-block">Password is missing</span>
+                                            <span ng-show="!loginCtrl.form.password.$error.required && loginCtrl.form.password.$error.minlength" class="help-block">Password is too short - 8 characters minimum</span>
+                                            <span ng-show="loginCtrl.form.password.$error.maxlength" class="help-block">Password is too long</span>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xs-3">
+                                        <toggle-switch name="showPassword" ng-model="showPassword" knob-label="Show" tabindex="5"></toggle-switch>
+                                    </div> -->
+                                </div>
+    
+                                <div class="form-check col-sm-12 remember-pw">
+                                    <div class="form-check">
+                                        <!-- <label class="form-check-label" for="defaultCheck1">
+                                            Remember password 
+                                        </label> -->
+                                        <span class="remember-password">Remember Password</span>
+                                        <input id="rememberpassword" class="form-check-input" type="checkbox" value="">
+                                    </div>
+                                </div>
+								 <div class="form-group recaptcha-box-wrap" >
+									<div class="recaptcha-box" vc-recaptcha theme="light" key="recaptchaPublicKey" on-success="setRecaptchaResponse(response)"></div>
+								 </div>
+                                <button type="submit" class="btn btn-primary btn-large btn-lg zan-lg-btn red-bg text-uppercase" ng-click="loginCtrl.submitClicked()" ng-submit="loginCtrl.submitClicked()" ng-disabled="loginCtrl.loginInProgress" tabindex="3">
+                                    Log in
+                                </button>
+
+                                <div class="forgot-pw">
+                                    <p class="text-center"><a id="forgot-link" href="lostPassword">FORGOT PASSWORD?</a></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="signup-btn col-md-6 text-center center">
+            <a class="btn btn-success btn-lg" role="button" href="register">
+                DON'T HAVE AN ACCOUNT? <span>SIGNUP NOW</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(window).load(function() {
+		doCookieStuff();
+    });
+</script>
+    <script src="//www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" ></script>

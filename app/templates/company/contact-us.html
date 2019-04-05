@@ -1,0 +1,57 @@
+<div class="company-page-wrapper">
+    <div id="about-us-wrapper">
+        <div class="container-fluid container" id="about-us-page">
+            <div class="row">
+                <div class="col-sm-12 center">
+                    <div class="about-us-holder">
+                        <h2 class="text-center text-uppercase red">Contact Us</h2>
+                       
+                        <div class="contact-us-form-wrapper col-md-6 col-md-push-3 zan-no-padding">
+                            <form class="form-horizontal contact-us-form" method="POST" name="contactCtrl.form" ng-submit="sendContactMessage($event)">
+                                <fieldset>
+                                    <h3>Want to send us a message?</h3>
+                                    <div class="form-group">
+                                        <label><span class="zan-required">*</span>Please choose a topic:</label>
+                                        <select id="topic" ng-model="formData.topic" class="form-control" name="topic" required>
+                                            <option value="" hidden></option>
+                                            <!-- <option value="Account Restrictions">Account Restrictions</option> -->
+                                            <option value="Account Registration">Account Registration</option>
+                                            <option value="Deposits/Withdrawals">Deposits/Withdrawals</option>
+                                            <option value="Technical Problems">Technical Problems</option>
+                                            <option value="Suggestions">Suggestions</option>
+                                            <option value="Complaints">Complaints</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="username">Username:</label>
+                                        <input type="text" ng-model="formData.username" class="form-control" id="username" placeholder="Your username" name="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="email"><span class="zan-required">*</span>Email:</label>
+                                        <input type="email" ng-model="formData.email" class="form-control" id="email" placeholder="Your email address" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="subject"><span class="zan-required">*</span>Subject:</label>
+                                        <input type="text" ng-model="formData.subject" class="form-control" id="subject" placeholder="Subject for your message" name="subject" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="message"><span class="zan-required">*</span>Message:</label>
+                                        <textarea class="form-control" ng-model="formData.message" id="message" rows="5" placeholder="Enter message" maxlength="2000" name="message" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="submit-wrapper">        
+                                            <label class="control-label character-label">2000 character max</label>
+                                            <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+                                            <input class="db-submit-btn btn" type="submit" value="Submit">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="create-contests-page-wrapper blue-cash-bg">
+    <div id="create-contests-wrapper">
+        <div class="container-fluid container" id="create-contests-page">
+            <div class="row">
+                <div class="col-sm-8 center container zan-no-invites">
+                    <div class="create-contests-holder">
+                        <h2 class="text-center find-contests-title text-uppercase red">Create Contests</h2>
+                        <p class="enlarge-p draft-enlarge-p">
+                            To create your contest please enter the info below:
+                        </p>
+                        <!-- ng-click="createcontestsCtrl.submitContest($event)" -->
+                        <form id="createContestForm" class="form-horizontal col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="League">League</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="League" ng-model="league" name="league">
+                                        <option hidden>---</option>
+                                        <option value="nba">NBA</option>
+                                        <option value="nfl">NFL</option>
+                                        <option value="mlb">MLB</option>
+                                        <option value="nhl">NHL</option>
+                                        <option value="mma">MMA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="ContestType">Contest Type</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="ContestType" name="contestType" ng-model="draftORbracket" ng-change="switch_label($event)">
+                                        <option hidden>---</option>
+                                        <option value="draft">Draft</option>
+                                        <option value="bracket">Bracket</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 draft-time hide" for="draft-time">Draft Start Date</label>
+                                <label class="control-label col-sm-3 bracket-deadline hide" for="bracket-deadline">Bracket Submit Date</label>
+                                <div class="col-sm-9">
+                                    <input type="date" data-date-format="YYYY MM DD" ng-model="submitTimeDate" name="submitTimeDate" class="form-control hide bracket-deadline">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 draft-time hide" for="draft-time">Draft Start Time</label>
+                                <label class="control-label col-sm-3 bracket-deadline hide" for="bracket-deadline">Bracket Submit Time</label>
+                                <div class="col-sm-9">
+                                    <input type="time" ng-model="submitTimeTime" name="submitTimeTime" class="form-control hide draft-time">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="contest-name">Contest Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" ng-model="contestName" class="form-control" id="contest-name" placeholder="" name="contestName">
+                                </div>
+                            </div>
+                            <!-- <div class="form-group invite-players-entries">
+                                <label class="control-label col-sm-3" for="invite-players">Players To Invite</label>
+                                <div class="col-sm-9 invite-players-wrapper">
+                                    <input type="text" id="invite-players" class="form-control" name="invitePlayers[]" placeholder="Enter Email or Cell Phone #" ng-model="invite" />
+                                    <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i> Add another</button>
+                                </div>
+                            </div> -->
+
+                            <div class="form-group" id="invite-players-entries">
+                                <label class="control-label col-sm-3" for="invite-players">Players To Invite</label>
+                                <div class="col-sm-9 invite-players-wrapper">
+                                    <input type="text" id="invite-players" class="form-control col-sm-11" name="invitePlayers[]" placeholder="Enter Email" />
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button ng-click="add_button($event)" type="button" class="btn btn-default addButton text-center"><i class="fa fa-plus"></i> Add another</button>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="message-to-players">Message To Players</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" ng-model="yourName" id="messageToPlayers" rows="3" name="messageToPlayers"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="ContestType">Entry Fee</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="EntryCost" ng-model="entryFee" name="entryFee">
+                                        <option value="0">FREE</option>
+                                        <option value="25">$25</option>
+                                        <option value="50">$50</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <label class="form-check-label" for="send-email-reminders">Send email reminders to players </label>
+                                    <input class="form-check-input" type="checkbox" value="" id="send-email-reminders" name="send-email-reminders">
+                                </div>
+                            </div>
+
+                            <div class="form-group recaptcha-box-wrap" >
+                                <div class="recaptcha-box" vc-recaptcha theme="light" key="recaptchaPublicKey" on-success="setRecaptchaResponse(response)"></div>
+                             </div>
+
+                            <div class="form-group"> 
+                                <div class="text-center">
+                                    <button type="submit" ng-click="createcontestsCtrl.submitContest($event)" class="btn btn-default submit-contest center">Submit</button>
+                                </div>
+                            </div>
+
+                            <div id="messages" class="hide" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <div id="messages_content"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

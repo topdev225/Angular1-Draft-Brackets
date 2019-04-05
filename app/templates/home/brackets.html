@@ -1,0 +1,46 @@
+<div data-ng-cloak>
+<section-loading show-loading=bracketTableLoading></section-loading>
+  <div ng-show="!bracketTableLoading" class=" container-fluid container">
+<div class="container zan-breadcrumbs ">
+	<h2 class="text-center find-contests-title text-uppercase red"></h2>
+</div>
+
+<script type="text/javascript">
+	var path_split = $(location).attr('pathname').split('/').reverse();
+	var zan_breadcrumb_sport = typeof path_split[2] != 'undefined' ? path_split[2] : "" ; var zan_breadcrumb_pathname = path_split[0] == "brackets" ? "Find Contests" : path_split[0] + " Contests";
+    $( ".zan-breadcrumbs h2" ).html( zan_breadcrumb_sport+" "+zan_breadcrumb_pathname );
+
+    // $(document).ready(function () {
+    //     if(window.location.href.indexOf("my/brackets/invites") > -1) {
+    //     }
+    // });
+</script>
+    <div class="row">
+     
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
+<div  class="sample" layout="column" ng-cloak>
+  <md-content class="tab-title{{$index%4}}">
+    <md-tabs md-selected="selectedIndex" md-autoselect>
+      <md-tab class="" ng-repeat="tab in tabs"
+              ng-disabled="tab.disabled"
+              label="{{tab.title}}">
+		
+        <div class="demo-tab tab{{$index%4}}" style=" text-align: center;">
+          <div  class="">
+			<div ui-grid="gridOptions"  ui-grid-pagination class="gridStyle"></div>
+			</div>
+					
+          
+        </div>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+
+      </div>
+     
+    </div>
+  </div>
+</div>

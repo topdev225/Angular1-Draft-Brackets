@@ -1,0 +1,21 @@
+
+<div  class="match" ng-init="results={winner:'', loser:''}" 
+	 ng-class="{tbd:((!team1Details.id || 0 === team1Details.id.length) && (!team2Details.id || 0 === team2Details.id.length)), hidden:(match.meta.matchType === 'finals2' && ((conference === 1 && prop.finals2C1 === false) || (conference === 2 && prop.finals2C2 === false)))}" 
+	 ng-click="showDetails($event)">
+
+	<div class="your-prediction"><span class="prediction-before" ng-bind-html="match.meta.prediction_before"></div>
+	<team  team="match.team1" teamdetails="team1Details" description="team1Description"></team>
+	
+	<team  team="match.team2" teamdetails="team2Details" description="team2Description"></team>
+	<div class="actual-result-wrap" ng-show="!bracketData.canStillEdit" >
+	<!--<div ng-show="!bracketData.canStillEdit || bracketData.canStillEdit" >-->
+	<div  class="your-actual">Actual Result</div>
+	<div style="" class="real-score-match" ng-bind-html="match.real_match" ></div>
+	 <div  class="overlay">
+	<div style="" class="actual-score-match real-score-match {{match.meta.match_color}}" >Points Earned: {{match.meta.match_score}}</div>
+	<!--<div style="" class="max-score-match real-score-match"  >Max Score: {{match.meta.max_score}}</div>-->
+	</div>
+	</div> 
+	
+	
+</div>  

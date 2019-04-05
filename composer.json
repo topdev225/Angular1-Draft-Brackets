@@ -1,0 +1,35 @@
+{
+	"name": "mattheworres/phpdraft",
+    "description": "This is a very cool package!",
+	"config": {
+		"description":"A PHP Draft Script"
+	},
+    "require": {
+        "php": ">=5.5.0",
+        "silex/silex": "2.0.2",
+        "monolog/monolog": "~1.21",
+        "symfony/security": "~2.8.9",
+        "cnam/security-jwt-service-provider":"2.1.0",
+        "doctrine/dbal": "2.5.4",
+        "egulias/email-validator": "~1.2",
+        "phpmailer/phpmailer": "~5.2",
+        "google/recaptcha": "~1.1",
+        "phpfastcache/phpfastcache": "~5.0.8",
+		"lalbert/silex-mongodb": "^1.0",
+		"guzzlehttp/guzzle":"6.3",
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpDraft\\": "api",
+            "PhpDraft\\Config\\": "api/config",
+            "PhpDraft\\Config\\Security\\": "api/config/Security",
+            "PhpDraft\\Controllers\\": "api/Controllers",
+            "PhpDraft\\Controllers\\Admin\\": "api/Controllers/Admin",
+            "PhpDraft\\Controllers\\Commish\\": "api/Controllers/Commish",
+            "PhpDraft\\Domain\\Entities\\": "api/Domain/Entities",
+            "PhpDraft\\Domain\\Repositories\\": "api/Domain/Repositories",
+            "PhpDraft\\Domain\\Services\\": "api/Domain/Services",
+            "PhpDraft\\Domain\\Validators\\": "api/Domain/Validators"
+        }
+    }
+}

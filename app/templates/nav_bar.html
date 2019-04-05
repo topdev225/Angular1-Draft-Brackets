@@ -1,0 +1,586 @@
+<nav class="navbar navbar-default" ng-hide="navigationHidden" role="navigation" id="navbar">
+    <div class="zan-max-width container">
+        <div class="navbar-header">
+            
+            <button type="button" class="navbar-toggle collapsed" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" aria-expanded="false" ng-show="navCtrl.isAuthenticated()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a  class="navbar-brand main-brand hide-sm-db" href="/brackets" ng-show="navCtrl.isAuthenticated()">
+                <img class="" src="images/draftbrackets-vector.svg" alt="PHP Draft" />
+                <div class="logo-text-wrap">
+                    <span class="nav-site-title text-uppercase">Draft<span> Brackets</span></span>
+                  
+                    <span class="sub-nav-text">Sport Contests</span>
+                </div>
+            </a> 
+             <a  class="navbar-brand main-brand hide-sm-up" href="/contests-mobile" ng-show="navCtrl.isAuthenticated()">
+                <img class="" src="images/draftbrackets-vector.svg" alt="PHP Draft" />
+                <div class="logo-text-wrap">
+                    <span class="nav-site-title text-uppercase">Draft<span> Brackets</span></span>
+                  
+                    <span class="sub-nav-text">Sport Contests</span>
+                </div>
+            </a> 
+
+            <a class="navbar-brand main-brand user-not-logged-in" href="/" ng-show="!navCtrl.isAuthenticated()">
+                <img class="" src="images/draftbrackets-vector.svg" alt="PHP Draft" />
+                <div class="logo-text-wrap">
+                    <span class="nav-site-title text-uppercase">Draft<span> Brackets</span></span>
+                  
+                    <span class="sub-nav-text">Sport Contests</span>
+                </div>
+            </a>
+
+            <!-- Mobile Login + Join Button -->
+            <span class="mobile-login-join-btns mobile-login-btn">
+                <ul class="nav navbar-nav navbar-right navbar-left">
+                    <li ng-show="!navCtrl.isAuthenticated()"><a href="login" class="blue white-bg text-uppercase btn login">Log in</a></li>
+                </ul>
+            </span>
+
+            <span class="zan-mobile-logo">
+                <a class="navbar-brand main-brand user-not-logged-in" href="/" ng-show="!navCtrl.isAuthenticated()" aria-hidden="false">
+                    <img class="" src="images/draftbrackets-vector.svg" alt="PHP Draft">
+                    <div class="logo-text-wrap">
+                        <span class="nav-site-title text-uppercase">Draft<span> Brackets</span></span>
+                      
+                        <span class="sub-nav-text">Sport Contests</span>
+                    </div>
+                </a>
+            </span>
+
+            <span class="mobile-login-join-btns mobile-login-join-btn">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="!navCtrl.isAuthenticated()"><a  onclick="return gtag_report_conversion('register');"  class="red-bg text-uppercase btn join">Join</a></li>
+					<li ng-show="navCtrl.isAuthenticated()"><a  ng-click="navCtrl.logOut()"  class="red-bg text-uppercase btn join">Logout</a></li>
+                </ul>
+            </span>
+            <!-- End Mobile Login + Join Button -->
+        </div>
+        <ul class="nav navbar-nav navbar-right zan-desktop-menu">
+            <li ng-show="!navCtrl.isAuthenticated()"><a href="login" class="btn-success text-uppercase btn">Log in</a></li>
+            <li ng-show="!navCtrl.isAuthenticated()"><a onclick="return gtag_report_conversion('register');"  class="red-bg text-uppercase btn">Join</a></li>
+
+            <!-- <li ng-show="navCtrl.isAuthenticated()" class="header-profile">
+                <a href="" class="header-profile-img" id="zan-profile">
+                    <img src="https://static.makeuseof.com/wp-content/uploads/2015/11/perfect-profile-picture-all-about-face.jpg" class="profile-img">
+                </a>
+                <ul class="">
+                    <li ng-show="navCtrl.isAuthenticated()" id="zan-logout">
+                        <a class="red-bg text-uppercase btn logout-btn" role="button" ng-click="navCtrl.logOut()">
+                          {{userName}} Log Out
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-show="navCtrl.isAuthenticated()">
+                <a href="" class="text-uppercase header-profile-balance zan-transparent-background">
+                    <span class="green">$0.00</span><br><span class="blue">Balance</span>
+                </a>
+            </li>
+            <li ng-show="navCtrl.isAuthenticated()">
+                <a class="text-uppercase btn btn-success deposit-btn" role="button" ng-click="">
+                    Deposit
+                </a>
+            </li> -->
+
+
+            <li ng-show="navCtrl.isAuthenticated()" class="header-profile">
+                <a href="" class="header-profile-img" id="zan-profile">
+                    <img src="https://static.makeuseof.com/wp-content/uploads/2015/11/perfect-profile-picture-all-about-face.jpg" class="profile-img">
+                </a>
+                <!-- <ul class="">
+                    <li ng-show="navCtrl.isAuthenticated()" id="zan-logout">
+                        <a class="red-bg text-uppercase btn logout-btn" role="button" ng-click="navCtrl.logOut()">
+                          {{username}} Log Out
+                        </a>
+                    </li>
+                </ul> -->
+                <ul class="zan-no-padding">
+                    <li ng-show="navCtrl.isAuthenticated()">
+                        <a href="" class="text-uppercase header-profile-balance zan-transparent-background">
+                            <span class="green">$0.00</span><br><span class="blue">Balance</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-show="navCtrl.isAuthenticated()" class="header-profile-name-balance">
+                <p>	
+					<div class="name-top-menu">
+						<span class="red">
+							{{username}} 
+						</span>
+						<span class="zan-arrow-dropdown">
+							<i class="material-icons zan-arrow-dd">
+								arrow_drop_down
+							</i>
+						</span>
+					</div>
+					 <ul class="zan-no-padding deposit-wrap">
+                    <li ng-show="navCtrl.isAuthenticated()">
+                        <a class="text-uppercase btn btn-success deposit-btn" role="button" ng-click="navCtrl.showDepositModal()">
+                            Deposit
+                        </a>
+                    </li>
+					</ul>
+                </p>
+                <li ng-show="navCtrl.isAuthenticated()" id="zan-logout">
+                    <a class="red-bg text-uppercase btn logout-btn" role="button" ng-click="navCtrl.logOut()">
+                        Log Out
+                    </a>
+                </li>
+               
+            </li>
+        </ul>
+    </div>
+<div class="bottom-navbar">
+    <div class="col-md-12 user-name-balance-wrapper" ng-show="navCtrl.isAuthenticated()">
+        <div class="left" ng-show="navCtrl.isAuthenticated()">
+            <p>Welcome <span class="red">{{username}},</span></p>
+        </div>
+        <div class="right" ng-show="navCtrl.isAuthenticated()">
+            <p>Balance: <span>$0.00</span></p>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    // var jq = $.noConflict();
+    $('li#zan-logout').hide();
+    $('.zan-dropdown, .zan-level-two, .zan-level-three, .zan-level-four, .zan-closed').hide();
+
+    $(document).ready(function() {
+        $('li#zan-logout').hide();
+        // $('#zan-profile').click(function(){
+        $('li.header-profile-name-balance span,li.header-profile-name-balance .zan-arrow-dropdown').click(function(){
+            $('li#zan-logout').toggle();
+            $('li#zan-logout a').click(function(){
+                $('li#zan-logout').hide();     
+            });
+        });
+
+        $("a.navbar-brand.main-brand").click(function(e){
+            $('button.navbar-toggle.collapsed').click();
+        });
+
+        var pgurl = location.pathname.split("/").pop();
+
+        $(".third-menu-logged > li.col-sm-3 > a").each(function() {
+            if ( $(this).hasClass( pgurl ) ) {
+                $(this).addClass("zan-active");
+            }
+
+            $( ".third-menu-logged li a" ).click(function(){
+                $(".third-menu-logged li a").removeClass("zan-active");
+                $( this ).addClass( "zan-active" );
+            });
+        });
+
+        $( ".second-menu-logged li#my-contests" ).click(function(){
+            $(".third-menu-logged li a").removeClass("zan-active");
+            $(".third-menu-logged a.upcoming").addClass("zan-active");            
+        });
+
+    });
+</script>
+
+
+<style type="text/css">
+    .open {
+        display: inline-block !important;
+    }
+
+    ul.nav.container.third-menu-logged.zan-max-width.db-zan-sub-dropdown.zan-level-two.zan-dropdown li, ul.nav.container.third-menu-logged.zan-max-width.db-zan-sub-dropdown.zan-level-two.zan-dropdown li a {
+        background-color: #fff !important;
+        color: #262a7c !important;
+    }
+
+    ul.nav.container.third-menu-logged.zan-max-width.zan-sub-dropdown.zan-level-three.zan-dropdown.zan-select-game li:nth-child(1), ul.nav.container.third-menu-logged.zan-max-width.zan-sub-dropdown.zan-level-three.zan-dropdown.zan-select-game li:nth-child(1) a, .mobile-my-contests ul.nav.container.third-menu-logged.zan-max-width.zan-sub-dropdown.zan-level-three.zan-dropdown li, .mobile-my-contests ul.nav.container.third-menu-logged.zan-max-width.zan-sub-dropdown.zan-level-three.zan-dropdown li a, .mobile-my-contests ul.nav.container.third-menu-logged.zan-max-width.zan-sub-sub-dropdown.zan-level-four.zan-dropdown.zan-select-game li:nth-child(1), .mobile-my-contests ul.nav.container.third-menu-logged.zan-max-width.zan-sub-sub-dropdown.zan-level-four.zan-dropdown.zan-select-game li:nth-child(1) a {
+        background-color: #262a7c !important;
+        color: #fff !important;
+    }
+
+    /*.mobile-my-contests ul.nav.container.third-menu-logged.zan-max-width.zan-sub-sub-dropdown.zan-level-four.zan-dropdown.zan-select-game li:nth-child(2) {
+        border-bottom: 4px solid #fff;
+    }*/
+
+    ul.nav.container.third-menu-logged.zan-max-width.zan-sub-sub-dropdown.zan-level-four.zan-dropdown.zan-select-game li:nth-child(2), ul.nav.container.third-menu-logged.zan-max-width.zan-sub-sub-dropdown.zan-level-four.zan-dropdown.zan-select-game li:nth-child(2) a {
+        background-color: #fff !important;
+        background: #fff !important;
+        color: #262a7c !important;
+    }
+
+    /*ul.zan-dropdown.zan-select-game.open li:first-child a, ul.zan-dropdown.zan-select-game.open li:first-child {*/
+    ul.nav.container.third-menu-logged.zan-max-width.zan-sub-sub-dropdown.zan-level-four.zan-dropdown.zan-select-game li:nth-child(2), ul.nav.container.third-menu-logged.zan-max-width.zan-sub-sub-dropdown.zan-level-four.zan-dropdown.zan-select-game li:nth-child(2) a, ul.nav.container.third-menu-logged.zan-max-width.zan-sub-dropdown.zan-level-three.zan-dropdown.zan-select-game li:nth-child(2), ul.nav.container.third-menu-logged.zan-max-width.zan-sub-dropdown.zan-level-three.zan-dropdown.zan-select-game li:nth-child(2) a {
+        background-color: #c3151c !important;
+        color: #fff !important;
+    }
+
+    .zan-dropdown.zan-select-game li:nth-child(1) i.material-icons.zan-remove-icon {
+        background-color: #fff;
+        color: #c3151c;
+    }
+
+    .zan-remove-icon, li.mobile-rules.db-zan-dropdown.open i.material-icons.zan-add-icon, li.mobile-my-contests.db-zan-dropdown.open i.material-icons.my-contests-add, li.mobile-find-contests.db-zan-dropdown.open i.material-icons.my-contests-add, ul.zan-dropdown.open li.open i.material-icons.fc-sports-add,.open.mobile-create-contests  .zan-add-icon {
+        display: none;
+    }
+
+    li.mobile-rules.db-zan-dropdown.open i.material-icons.rules-remove, li.mobile-my-contests.db-zan-dropdown.open i.material-icons.my-contests-remove, li.mobile-find-contests.db-zan-dropdown.open i.material-icons.my-contests-remove, ul.zan-dropdown.open li.open i.material-icons.zan-remove-icon.fc-sports-remove,.open.mobile-create-contests  .zan-remove-icon {
+        display: block;
+    }
+
+    ul.zan-dropdown.open li.open i.material-icons.zan-remove-icon.fc-sports-remove {
+        margin-top: 0;
+        position: absolute;
+        right: 44px;
+    }
+</style>
+
+
+
+<div ng-show="navCtrl.isAuthenticated()" class="bottom-navbar-dos bottom-navbar" style="">
+    <div class="submenus-wrap">
+        <div id="mobile-menu-items" class="collapse navbar-collapse zan-mobile-menu-holder" ng-class="!navCollapsed && 'in'">
+            <div class="second-menu-logged-high-wrap">
+            <div class="second-menu-logged-wrap container zan-desktop-menu clearfix">
+                <ul class="nav  zan-max-width second-menu-logged col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <li id="find-contests" class="find-contests col-sm-4 {{addActive}}">
+                        <a href="{{globalDomainNameBase}}brackets" class="find-contests">
+                            Find Contests
+                            <!-- <span class="caret"></span> -->
+                        </a>
+                    </li>
+                    <li id="my-contests" class="my-contests col-sm-4 {{addMyActive}}">
+                        <a href="{{globalDomainNameBase}}my/brackets/upcoming" class="my-contests">
+                            My Contests
+                            <!-- <span class="caret"></span> -->
+                        </a>
+                    </li>
+                    <li id="create-contests" class="create-contests col-sm-4">
+					<!--ng-click="navCtrl.showCreateModal($event)" -->
+                        <a href="/create-contests"  class="create-contests">
+                            Create Contests
+                            <!-- <span class="caret"></span> -->
+                        </a>
+                    </li>
+                    <!--<li ng-show="navCtrl.isContest()" >
+                        <a href="{{globalDomainNameBase}}standings/contest_id/{{navCtrl.getContestId()}}/pool_id/{{navCtrl.getPoolId()}}/league/{{navCtrl.getLeague()}}" class="">
+                            Standings
+                           
+                        </a>
+                    </li>-->
+                        <!--<ul class="dropdown-menu" aria-labelledby="draftDropdown">
+                            <li>
+                                <a href="brackets" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-table"></i>All Leagues
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="brackets" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-table"></i>All Brackets
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-show="navCtrl.isAuthenticated()" href="my/brackets" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-table"></i>My Brackets
+                                </a>
+                            </li>
+                            <li>
+                                <a href="by-commish" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-users"></i>Leagues by Commissioner
+                                </a>
+                            </li>
+                            <li ng-show="navCtrl.isAuthenticated()">
+                                <a href="#" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-plus"></i>Add New League
+                                </a>
+                            </li>
+                        </ul>-->
+                    </li>
+                 
+                    <li ng-show="navCtrl.isAdmin()" uib-dropdown>
+                        <a href id="adminDropdown" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-expanded="false">
+                            <i class="fa fa-unlock"></i>Admin Stuff
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                            <li>
+                                <a href="admin/users" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-users"></i>Users
+                                </a>
+                            </li>
+                            <li>
+                                <a href="admin/proplayers" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-cog"></i>Player Data
+                                </a>
+                            </li>
+                            <li>
+                                <a href="admin/stats" ng-click="navCollapsed = !navCollapsed">
+                                    <i class="fa fa-bar-chart"></i>Draft Stats
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div class="third-menu-logged-high-wrap">
+            <div ng-show="navCtrl.isMine()" class=" container third-menu-logged-wrap zan-max-width clearfix zan-desktop-menu">
+                <ul  class="nav  col-xs-12 col-sm-12 col-md-12 col-lg-12 third-menu-logged ">
+                    <li class="col-sm-3" >
+                        <a href="{{globalDomainNameBase}}/invites" class="invites">
+                            Invites
+                            <!-- <span class="caret"></span> -->
+                        </a>
+                        <span class="zan-hyphen">-</span>
+                    </li>
+                    <li class="col-sm-3">
+                        <a href="{{globalDomainNameBase}}my/brackets/upcoming" class="upcoming">
+                            Upcoming
+                            <!-- <span class="caret"></span> -->
+                        </a>
+                        <span class="zan-hyphen">-</span>
+                    </li>
+                    <li class="col-sm-3">
+                        <a href="{{globalDomainNameBase}}my/brackets/active" class="active">
+                            Active
+                            <!-- <span class="caret"></span> -->
+                        </a>
+                        <span class="zan-hyphen">-</span>
+                    </li>
+                    <li class="col-sm-3">
+                        <a href="{{globalDomainNameBase}}my/brackets/past" class="past">
+                            Past
+                            <!-- <span class="caret"></span> -->
+                        </a>
+                    </li>
+                </ul>
+           </div>
+            </div>
+            <div class="submenus-wrap bottom-navbar">
+                <div id="mobile-menu-items-sub" class="collapse navbar-collapse zan-mobile-menu-holder" ng-class="!navCollapsed && 'in'">
+                    <div class="second-menu-logged-wrap clearfix">
+                        <div class="zan-deposit">
+                            <a class="text-uppercase btn btn-success deposit-btn" role="button" ng-click="navCtrl.showDepositModal()">
+                                Deposit 
+                            </a>
+                        </div>
+                        <ul class="nav container zan-max-width second-menu-logged zan-level-one">
+                            <li ng-show="navCtrl.isAuthenticated()" class="mobile-find-contests db-zan-dropdown ">
+                                <a href="" class="mobile-find-contests a-mobile-menu-link" ng-click="openMenuDB($event)">
+                                    Find Contests
+                                </a>
+                                <span><i class="material-icons zan-add-icon my-contests-add">add</i></span>
+                                <span><i class="material-icons zan-remove-icon my-contests-remove">remove</i></span>
+                                <ul class="nav container third-menu-logged zan-max-width db-zan-sub-dropdown zan-level-two zan-dropdown">
+                                    <li ng-show="navCtrl.isAuthenticated()" ng-repeat="(key,value) in sports" class="{{key}}-contests">
+                                        <a href="" ng-click="openMenuDB($event)" class="a-mobile-menu-link" ng-click="openMenuDB($event)">{{key}}</a>
+                                        <span><i class="material-icons zan-add-icon fc-sports-add">add</i></span>
+                                        <span><i class="material-icons zan-remove-icon fc-sports-remove">remove</i></span>
+                                        <ul class="nav container third-menu-logged zan-max-width zan-sub-dropdown zan-level-three zan-dropdown zan-select-game">
+                                            <li ng-show="navCtrl.isAuthenticated()" ng-repeat="game in games" class="{{game}}-game">
+                                                <a href="{{relativePath}}{{contest}}sport/{{value}}/type/{{game}}" class="db-game a-mobile-menu-link" ng-click="openMenuDB($event)">{{game}}</a>
+                                                <!-- <span><i class="material-icons zan-add-icon games-add">add</i></span>
+                                                <span><i class="material-icons zan-remove-icon">remove</i></span> -->
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li ng-show="navCtrl.isAuthenticated()" class="mobile-my-contests db-zan-dropdown">
+                                <a href="" class="mobile-my-contests a-mobile-menu-link" ng-click="openMenuDB($event)">
+                                    My Contests
+                                </a>
+                                <span><i class="material-icons zan-add-icon my-contests-add">add</i></span>
+                                <span><i class="material-icons zan-remove-icon my-contests-remove">remove</i></span>
+                                <ul class="nav container third-menu-logged zan-max-width db-zan-sub-dropdown zan-level-two zan-dropdown">
+                                    <li ng-show="navCtrl.isAuthenticated()" ng-repeat="contest in contests" class="">
+                                        <!-- <a href="" class="a-mobile-menu-link" ng-click="openMenuDB($event)">{{contest}}</a> -->
+                                        <a href="my/brackets/{{contest}}" class="a-mobile-menu-link" ng-click="openMenuDB($event)">{{contest}}</a>
+                                        <!-- <span><i class="material-icons zan-add-icon contests-add">add</i></span>
+                                        <span><i class="material-icons zan-remove-icon contests-remove">remove</i></span> -->
+
+                                        <!-- <ul class="nav container third-menu-logged zan-max-width zan-sub-dropdown zan-level-three zan-dropdown">
+                                            <li ng-show="navCtrl.isAuthenticated()" ng-repeat="(key,value) in sports" class="">
+                                                <a href="" class="a-mobile-menu-link" ng-click="openMenuDB($event)">{{key}}</a>
+                                                <span><i class="material-icons zan-add-icon sports-add">add</i></span>
+                                                <span><i class="material-icons zan-remove-icon sports-remove">remove</i></span> -->
+                                                <!-- <ul class="nav container third-menu-logged zan-max-width zan-sub-sub-dropdown zan-level-four zan-dropdown zan-select-game">
+                                                    <li ng-show="navCtrl.isAuthenticated()" ng-repeat="game in games" class="">
+                                                        <a href="{{myRelativePath}}{{contest}}/sport/{{key}}/type/{{game}}" class="db-game a-mobile-menu-link" ng-click="openMenuDB($event)">{{game}}</a> -->
+                                                        <!-- <span><i class="material-icons zan-add-icon games-add">add</i></span>
+                                                        <span><i class="material-icons zan-remove-icon">remove</i></span> -->
+                                                    <!-- </li>
+                                                </ul> -->
+                                            <!-- </li>
+                                        </ul> -->
+                                    </li>
+                                </ul>
+                            </li>
+                            <li ng-show="navCtrl.isAuthenticated()" class="mobile-create-contests db-zan-dropdown">
+                                <a href=""  class="mobile-create-contests" ng-click="openMenuDB($event)">
+                                    Create Contests
+                                </a>
+								 <span><i class="material-icons zan-add-icon rules-add">add</i></span>
+                                <span><i class="material-icons zan-remove-icon rules-remove">remove</i></span>
+								<ul class="nav container third-menu-logged zan-max-width db-zan-sub-dropdown zan-level-two zan-dropdown">
+									<li ng-show="navCtrl.isAuthenticated()" class="">
+                                        <a href="/create-contests"  class="a-mobile-menu-link" >Create Now</a>
+                                    </li>
+									     <!--ng-click="navCtrl.showCreateModal($event)"-->
+                                   
+                                </ul>
+                                <!-- <span><i class="material-icons zan-add-icon create-contests-add">add</i></span> -->
+                            </li>
+                            <li ng-show="navCtrl.isAuthenticated()" class="mobile-rules db-zan-dropdown">
+                                <a class="mobile-rules  a-mobile-menu-link" role="button" href="" ng-click="openMenuDB($event)">
+                                    RULES
+                                </a>
+                                <span><i class="material-icons zan-add-icon rules-add">add</i></span>
+                                <span><i class="material-icons zan-remove-icon rules-remove">remove</i></span>
+                                <ul class="nav container third-menu-logged zan-max-width db-zan-sub-dropdown zan-level-two zan-dropdown">
+									<li ng-show="navCtrl.isAuthenticated()" class="">
+                                        <a href="nba" ng-click="openMenuDB($event)" class="a-mobile-menu-link" ng-click="openMenuDB($event)">NBA</a>
+                                    </li>
+									      <li ng-show="navCtrl.isAuthenticated()" class="">
+                                        <a href="nfl" ng-click="openMenuDB($event)" class="a-mobile-menu-link" ng-click="openMenuDB($event)">NFL</a>
+                                    </li>
+                                    <li ng-show="navCtrl.isAuthenticated()" class="">
+									
+                                        <a href="mlb" ng-click="openMenuDB($event)" class="a-mobile-menu-link" ng-click="openMenuDB($event)">MLB</a>
+                                    </li>
+                              
+                                    <li ng-show="navCtrl.isAuthenticated()" class="">
+                                        <a href="nhl" ng-click="openMenuDB($event)" class="a-mobile-menu-link" ng-click="openMenuDB($event)">NHL</a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+
+
+
+<nav class="navbar navbar-inverse navbar-draft navbar-default" ng-show="showDraftMenu" role="navigation">
+    <div class="container-fluid">
+        <div class="row" ng-show="draftValid">
+            <!-- <div class="col-xs-12 col-sm-2 col-md-2 navbar-header-middle"> -->
+            <div class="navbar-header-middle zan-navbar-header-middle">
+                <button type="button" class="navbar-toggle collapsed" ng-init="draftNavCollapsed = true" ng-click="draftNavCollapsed = !draftNavCollapsed" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="draft/{{draft.draft_id}}/league/{{leagueName}}">{{draft.draft_name}}</a>
+            <!-- </div> -->
+            <!-- <div class="col-xs-12 col-sm-7 col-md-9 navbar-header-left collapse navbar-collapse zan-draft-nav" ng-class="!draftNavCollapsed && 'in'"> -->
+                <div class="navbar-header-left collapse navbar-collapse zan-draft-nav" ng-class="!draftNavCollapsed && 'in'">
+                    <ul class="nav navbar-nav">
+                        <!--<li ng-hide="draftLocked || draft.setting_up">
+                            <a href="draft/{{draft.draft_id}}/board" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                <i class="fa fa-table"></i>Draft Board
+                            </a>
+                        </li>
+                        <li ng-hide="draftLocked || draft.setting_up || !draft.using_depth_charts">
+                            <a href="draft/{{draft.draft_id}}/depth_chart" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                <i class="fa fa-th-list"></i>Depth Charts
+                            </a>
+                        </li>
+                        <li ng-show="!draftLocked && draft.complete">
+                            <a href="draft/{{draft.draft_id}}/stats" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                <i class="fa fa-bar-chart"></i>Stats
+                            </a>
+                        </li>-->
+                       <!-- <li uib-dropdown ng-hide="draftLocked || draft.setting_up">
+                            <a href="#" id="pickDropdown" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-check-square"></i>Picks
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="pickDropdown">
+                                <li>
+                                    <a href="draft/{{draft.draft_id}}/picks/manager/league/{{leagueName}}" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-users"></i>by Manager
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="draft/{{draft.draft_id}}/picks/round/league/{{leagueName}}" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-list-ol"></i>by Round
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="draft/{{draft.draft_id}}/trades" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-exchange"></i>Trades
+                                    </a>
+                                </li>-->
+                               <!-- <li>
+                                    <a href="draft/{{draft.draft_id}}/search" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-search"></i>Search
+                                    </a>
+                                </li>--><!--
+                            </ul>
+                        </li>-->
+                        <!--<li uib-dropdown>
+                            <a href="#" id="commishDropdown" ng-show="draft.commish_editable" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-cogs"></i>Commissioner Toolbox
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="commishDropdown">
+                                <li ng-show="draft.setting_up">
+                                    <a href="#" ng-click="navCtrl.showStartDraftModal()" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-play"></i>Start Draft!
+                                    </a>
+                                </li>
+                                <li ng-show="draft.in_progress">
+                                    <a href="commish/draft/{{draft.draft_id}}/picks/add/league/{{leagueName}}" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-check-square-o"></i>Enter Picks
+                                    </a>
+                                </li>
+                                <li ng-show="draft.in_progress">
+                                    <a href="commish/draft/{{draft.draft_id}}/picks/edit/league/{{leagueName}}" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-pencil"></i>Edit a Pick
+                                    </a>
+                                </li>
+                              <li ng-show="draft.in_progress">
+                                    <a href="commish/draft/{{draft.draft_id}}/trades/add" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-exchange"></i>Enter a Trade
+                                    </a>
+                                </li>
+                                <li ng-show="!draft.complete">
+                                    <a href="commish/draft/{{draft.draft_id}}/timers/league/{{leagueName}}" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-clock-o"></i>Setup Timers
+                                    </a>
+                                </li>
+                                <li ng-show="draft.setting_up">
+                                    <a href="commish/draft/{{draft.draft_id}}/edit" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-pencil-square-o"></i>Edit Draft
+                                    </a>
+                                </li>
+                                <li ng-show="draft.in_progress">
+                                    <a href="#" ng-click="navCtrl.showResetDraftModal()" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-warning"></i>Reset Draft
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" ng-click="navCtrl.showDeleteDraftModal()" ng-click="draftNavCollapsed = !draftNavCollapsed">
+                                        <i class="fa fa-trash"></i>Delete Draft
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

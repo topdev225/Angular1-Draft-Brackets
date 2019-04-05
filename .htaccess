@@ -1,0 +1,58 @@
+<FilesMatch appsettings.php>
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+  
+
+
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+
+    RewriteEngine On
+    RewriteBase /
+
+    # Comment next line to disable forcing of HTTPS for all pages:
+    # (it is strongly recommended you *keep* this setting enabled!)
+	RewriteCond %{HTTPS} off
+	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+	
+	
+	
+	#RewriteCond %{HTTP_HOST}%{REQUEST_URI} ^http://draftbrackets.com/admin [NC]
+	#RewriteRule ^(.*)$ http://google.com%{REQUEST_URI} [R=301,L] 
+	#Force non-www:
+	 
+	RewriteCond %{HTTP_HOST} ^www\. [NC]
+	RewriteRule ^(.*)$ https://draftbrackets.com%{REQUEST_URI} [R=301,L]
+	
+	
+
+	
+   
+   
+    DirectoryIndex bootstrap.php index.php index.html
+    Options +FollowSymLinks
+    RewriteEngine on
+
+    # redirect all api calls to /api/bootstrap.php
+    RewriteRule ^api/((?!bootstrap\.php$).+)$ api/bootstrap.php [L,NC]
+
+    # If the request is a file, folder or symlink that exists, or is for the mail server, serve it up
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    #RewriteCond %{SERVER_PORT} ^1025$
+    #RewriteCond %{SERVER_PORT} ^1080$
+    RewriteRule ^ - [L]
+
+    # otherwise, serve your index.php app
+    RewriteRule ^(.+)$ index.php [L]
+    
+</IfModule>
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 134.175.167.218
+deny from 192.169.143.94

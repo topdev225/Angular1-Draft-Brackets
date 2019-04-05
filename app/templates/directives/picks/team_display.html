@@ -1,0 +1,75 @@
+<!-- <div ng-if="pick.selected" ng-class="pick.chosenAsset ? 'pick col-xs-12 pick' + pick.position + ' chosenAsset' : 'pick col-xs-12 pick' + pick.position">  -->
+
+<!-- <div class="pick col-xs-12 unselected" ng-if="!pick.selected" ng-class="(pick.on_the_clock ? ' active' : '') + (pick.chosenAsset ? ' chosenAsset' : '')"> -->
+
+
+
+
+
+<div class="zan-row">
+    <div class="td zan-drafts-table zan-avail-teams-table" style="width: 100%;">
+        <div class="tr clearfix table-content table-to-div-row">
+            <!--<td class="col-sm-2">
+                <div class="player-data zan-player-data">
+                    <span class="visible-xs hidden-sm hidden-md hidden-lg manager-xs">{{pick.ranking}}</span>
+                    <span class="hidden-xs visible-sm visible-md visible-lg manager-sm">{{pick.ranking}}</span>
+                </div>        
+            </td>-->
+            <div ng-class="{'col-sm-3' : (draft.commish_editable == true),'col-sm-4' : !draft.commish_editable }" class="table-to-div-col td zan-team-data">
+                <div class="player-data zan-player-data hide-team-info">
+                    <!-- Need two because from the node js admin side it is name and the sql side it is team_name -->
+                    <span class="visible-xs hidden-sm hidden-md hidden-lg first-name-xs team-name-avail">{{pick.name}}</span>
+                    <span class="hidden-xs visible-sm visible-md visible-lg player-name-sm team-name-avail">{{pick.name}}</span>
+                    <span class="sports-data visible-xs visible-sm visible-md hidden-lg team-name-avail">{{pick.league}} {{pick.team}}</span>
+                    <span class="sports-data hidden-xs hidden-sm hidden-md visible-lg team-name-avail">{{pick.league}} {{pick.team}}</span>
+                    <!-- <span class="manager">{{pick.manager_name}}</span> -->
+                </div>
+            </div>
+            <div ng-class="{'col-sm-3' : (draft.commish_editable == true),'col-sm-4' : !draft.commish_editable }" ng-show="draft.commish_editable" class="table-to-div-col td zan-team-data">
+                <div class="player-data zan-player-data hide-team-info">
+                    <!-- Need two because from the node js admin side it is name and the sql side it is team_name -->
+                    <span  id="draft-team-id-{{pick._id}}-{{pick.name}}"  class="green draft-green-selection">Draft</span>  
+                  
+                   
+                    <!-- <span class="manager">{{pick.manager_name}}</span> -->
+                </div>
+            </div>
+            <div ng-class="{'col-sm-3' : (draft.commish_editable == true),'col-sm-4' : !draft.commish_editable }" class="table-to-div-col  td">
+                <div class="pick-data zan-pick-data">
+                    <span class="hidden-md hidden-lg pick-number"><small>Wins </small>{{pick.wins}}</span>
+                    <!-- <span class="hidden-md hidden-lg round-number"><small>Rd </small>{{pick.player_round}}</span> -->
+                    <span class="hidden-xs hidden-sm pick-number"><small>  </small>{{pick.wins}}</span>
+                    <!-- <span class="hidden-xs hidden-sm round-number"><small>Round </small>{{pick.player_round}}</span> -->
+                </div>            
+            </div> 
+            <div ng-class="{'col-sm-3' : (draft.commish_editable == true),'col-sm-4' : !draft.commish_editable }" class="table-to-div-col  td">
+                <div class="pick-data zan-pick-data">
+                    <!-- <span class="hidden-md hidden-lg pick-number"><small># </small>{{pick.player_pick}}</span> -->
+                    <span class="hidden-md hidden-lg round-number"><small>Losses </small>{{pick.losses}}</span>
+                    <!-- <span class="hidden-xs hidden-sm pick-number"><small>Pick # </small>{{pick.player_pick}}</span> -->
+                    <span class="hidden-xs hidden-sm round-number"><small> </small>{{pick.losses}}</span>
+                </div> 
+            </div>
+             <!--<td class="col-sm-2">
+                <div class="pick-data zan-pick-data">
+                    
+                    <span class="hidden-md hidden-lg round-number"><small>Win%</small>{{pick.win_percentage}}%</span>
+                    
+                    <span class="hidden-xs hidden-sm round-number"><small> </small>{{pick.win_percentage}}%</span>
+                </div> 
+            </td>-->
+             <!--<td class="col-sm-2">
+                <div class="pick-data zan-pick-data">
+                    
+                    <span class="hidden-md hidden-lg round-number"><small>Seed </small>{{pick.conference.slice(0,1)}}-{{pick.seed}}</span>
+                   
+                    <span class="hidden-xs hidden-sm round-number"><small> </small>{{pick.conference.slice(0,1)}}-{{pick.seed}}</span>
+                </div> 
+            </td>-->
+        </tr>
+    </table>
+</div>
+
+    <!-- <div class="logo">
+        <img src="https://s3.amazonaws.com/freebiesupply/large/2x/baltimore-ravens-logo-transparent.png" class="table-team-icon">
+    </div>    

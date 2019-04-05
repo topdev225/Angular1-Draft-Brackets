@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+  <head>
+      <meta charset="utf-8">
+      <title>PHPDraft</title>
+
+      <base href="/phpdraft/">
+
+      <meta name="fragment" content="!">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+
+      <link href='api/style' rel='stylesheet' type='text/css'>
+      <link href='//fonts.googleapis.com/css?family=Arimo:400,700,400italic|Prosto+One' rel='stylesheet' type='text/css'>
+      <!-- inject:css -->
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/style-vendor.css">
+      <!-- endinject -->
+      <!-- inject:js -->
+      <script src="js/vendor.js"></script>
+      <script src="js/app.js"></script>
+      <script src="js/angular_base/angular_component.js"></script>
+      <script src="js/angular_base/angular_controller.js"></script>
+      <script src="js/angular_base/angular_service.js"></script>
+      <script src="js/base/base_controller.js"></script>
+      <script src="js/config/add_auth_token_header.js"></script>
+      <script src="js/config/add_draft_password_header.js"></script>
+      <script src="js/config/global.js"></script>
+      <script src="js/config/toastr_config.js"></script>
+      <script src="js/constants/subscription_keys.js"></script>
+      <script src="js/controllers/donationPrompt.js"></script>
+      <script src="js/controllers/footer.js"></script>
+      <script src="js/controllers/nav.js"></script>
+      <script src="js/directives/donationPrompt.js"></script>
+      <script src="js/directives/footer_bar.js"></script>
+      <script src="js/directives/nav_bar.js"></script>
+      <script src="js/listeners/reload_draft.js"></script>
+      <script src="js/listeners/route_change_start.js"></script>
+      <script src="js/listeners/route_change_success.js"></script>
+      <script src="js/listeners/view_content_loaded.js"></script>
+      <script src="js/services/authentication_service.js"></script>
+      <script src="js/services/confirm_action_service.js"></script>
+      <script src="js/services/depthChartPositionService.js"></script>
+      <script src="js/services/donation_prompt_service.js"></script>
+      <script src="js/services/draft_service.js"></script>
+      <script src="js/services/error_service.js"></script>
+      <script src="js/services/message_service.js"></script>
+      <script src="js/services/model_api.js"></script>
+      <script src="js/services/pick_service.js"></script>
+      <script src="js/services/working_modal_service.js"></script>
+      <script src="js/controllers/admin/pro_player_management.js"></script>
+      <script src="js/controllers/admin/regenerate_stats.js"></script>
+      <script src="js/controllers/admin/users.js"></script>
+      <script src="js/controllers/authentication/edit_profile.js"></script>
+      <script src="js/controllers/authentication/login_controller.js"></script>
+      <script src="js/controllers/authentication/lost_password_controller.js"></script>
+      <script src="js/controllers/authentication/register_controller.js"></script>
+      <script src="js/controllers/authentication/reset_password_controller.js"></script>
+      <script src="js/controllers/authentication/verify_controller.js"></script>
+      <script src="js/controllers/commish/add_pick.js"></script>
+      <script src="js/controllers/commish/draft_create.js"></script>
+      <script src="js/controllers/commish/draft_edit.js"></script>
+      <script src="js/controllers/commish/edit_pick.js"></script>
+      <script src="js/controllers/commish/pick_timers.js"></script>
+      <script src="js/controllers/commish/trade_add.js"></script>
+      <script src="js/controllers/directives/commish_managers.js"></script>
+      <script src="js/controllers/directives/commish_pick_edit.js"></script>
+      <script src="js/controllers/draft/board.js"></script>
+      <script src="js/controllers/draft/depth_chart.js"></script>
+      <script src="js/controllers/draft/index.js"></script>
+      <script src="js/controllers/draft/stats.js"></script>
+      <script src="js/controllers/draft/trades.js"></script>
+      
+      <script src="js/controllers/home/by_commish.js"></script>
+      <script src="js/controllers/home/home.js"></script>
+      <script src="js/controllers/modals/add_managers.js"></script>
+      <script src="js/controllers/modals/admin_edit_user_modal.js"></script>
+      <script src="js/controllers/modals/confirm_action_modal.js"></script>
+      <script src="js/controllers/modals/draft_password_modal.js"></script>
+      <script src="js/controllers/modals/duplicate_pick.js"></script>
+      <script src="js/controllers/modals/working_modal.js"></script>
+      <script src="js/controllers/picks/by_manager.js"></script>
+      <script src="js/controllers/picks/by_round.js"></script>
+      <script src="js/controllers/picks/search.js"></script>
+      <script src="js/directives/commish/commish_managers.js"></script>
+      <script src="js/directives/commish/commish_pick_edit.js"></script>
+	  
+	  <!--throwing in some brackets -->
+	 <script src="js/services/services.js"></script>
+      <script src="js/directives/bracket/bracket.js"></script>
+      <script src="js/directives/bracket/tournamentGenerator.js"></script>
+	 <script src="js/controllers/bracket/index.js"></script>
+	  <!--throwing in some brackets -->
+
+      <script src="js/directives/draft/depth_chart_positions.js"></script>
+      <script src="js/directives/draft/draft_completed.js"></script>
+      <script src="js/directives/draft/draft_in_progress.js"></script>
+      <script src="js/directives/draft/draft_information.js"></script>
+      <script src="js/directives/draft/draft_setting_up.js"></script>
+      <script src="js/directives/draft/draft_state.js"></script>
+      <script src="js/directives/draft/draft_status_label.js"></script>
+      <script src="js/directives/picks/manager_picks_display.js"></script>
+      <script src="js/directives/picks/pick_display.js"></script>
+      <script src="js/directives/picks/picks_by_round.js"></script>
+      <script src="js/directives/picks/previous_picks.js"></script>
+      <script src="js/directives/picks/trade_asset_display.js"></script>
+      <script src="js/directives/picks/upcoming_picks.js"></script>
+      <script src="js/directives/shared/focus_on.js"></script>
+      <script src="js/directives/shared/ng_enter.js"></script>
+      <script src="js/directives/shared/precise_humanized_seconds.js"></script>
+      <script src="js/directives/shared/section_error.js"></script>
+      <script src="js/directives/shared/section_loading.js"></script>
+      <script src="js/directives/shared/show-errors.js"></script>
+      <script src="js/dev.js"></script>
+      <script src="js/router.js"></script>
+      <!-- endinject -->
+  </head>
+  <body>
+    <nav-bar></nav-bar>
+    <div data-ng-view id="page_body"></div>
+    <footer-bar></footer-bar>
+    <script src="//www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+  </body>
+</html>
+

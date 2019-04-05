@@ -1,0 +1,69 @@
+<!-- Bracket control --> 
+
+<div class="container-fluid container">
+	<div class="{{bracketData.tournament.league}} bracket-league-wrapper" ng-cloak id="ngBracket" ng-style="layoutProperties.bracket">
+		<div class="conferenceHeader alignLeft"><h1 class="conference-title">{{bracketData.leagueConferences[1]}}</h1></div>
+		<div class="conferenceHeader alignRight"><h1 class="conference-title">{{bracketData.leagueConferences[2]}}</h1></div>
+		<div class="bracket-header-button-wrap">
+			
+			<div class="bracketHeader">
+				<div ng-show="bracketData.leagueName == 'MLB' || bracketData.leagueName == 'NBA' || bracketData.leagueName == 'NHL'" id="bracket-title-wrap"><img class="title-league-logo" src="/images/mlb_2018_logo.svg" /> </div>
+			</div> 
+
+			<div class="container-fluid">
+		
+			<div id="save-button-surround" ng-show="bracketData.canStillEdit" class="button-wrap" > 
+
+						<button id="save-the-picks"  class="save-picks-btn btn-success text-uppercase btn" ng-click="savePicks()">Save Picks</button>
+
+					</div>
+			
+			<div ng-show="!bracketData.canStillEdit" class="button-wrap bracket-details-box" >  
+						
+						<button  class="score-btn btn-success btn" ><div id="current-score" class="bracket-scores"> Your <span ng-show="!bracketData.isExpired">Current Score</span> <span ng-show="bracketData.isExpired">Final Score</span> : {{bracketData.tournament.userScore}}</div><div ng-show="!bracketData.isExpired" id="max-score" class="bracket-scores"> Your Maximum Score : {{bracketData.tournament.maxScore}}</div>
+						
+						</button>
+	
+					</div>
+			<div ng-show="!bracketData.canStillEdit" class="current-standings "><div class="standings-button-inner btn"><a href="{{globalDomainNameBase}}standings/contest_id/{{bracketData.getContestId()}}/pool_id/{{bracketData.getPoolId()}}/league/{{bracketData.getLeague()}}/type/{{bracketData.getType()}}"><span ng-show="!bracketData.isExpired">Current Standings</span><span ng-show="bracketData.isExpired">Final Standings</span><a></div></div>
+			</div></div>
+			
+		<!-- Double conference layout --> 
+		
+		<div id="round-surround" class="clearfix round-wrapper" ng-if="bracketData.tournament.doubleConference">
+			<div ng-class="" id="wrap-id-{{$index+1}}" class="wrap-{{$index+1}} round-wrap-inner" ng-repeat="c in bracketData.tournament.conferences " ng-init="reversed=($index===2)"> 
+				
+				
+					<!--<div class="round-row">
+					<div ng-repeat="m in c.matches" class="round " id="round-{{$index+1}}" ng-class="{'doubleFinal': bracketData.tournament.type === 'DE' && (($parent.$first && $last && (prop.finals2C1 === true || prop.finals2C1 === undefined)) || ($parent.$last && $last && (prop.finals2C2 === true || prop.finals2C2 === undefined)))}" on-begin-render>
+						
+					</div>
+					</div>-->
+					<div ng-repeat="m in c.matches " class="round round-{{$index+1}}" id="wrap-{{$parent.$index+1}}-round-{{$index+1}}" ng-class="{'doubleFinal': bracketData.tournament.type === 'DE' && (($parent.$first && $last && (prop.finals2C1 === true || prop.finals2C1 === undefined)) || ($parent.$last && $last && (prop.finals2C2 === true || prop.finals2C2 === undefined)))}" on-begin-render>
+											
+						<div class="roundHeader" >
+							<span class="centered"> {{ bracketData.getRoundNameBySport($index+1,bracketData.leagueName,$parent.$index !== 1) }}</span>
+						</div>
+						<div class="round-separator-mlb round-separator">
+						<img src="/images/mlb-separator.svg" />
+					</div>
+						<div class="roundWrap">
+						
+							<div class="matchWrapper" ng-repeat="match in m" id="{{ match.meta.matchId }}">
+							
+								<match></match>
+								
+							</div>
+						</div> 
+
+					</div>
+					
+					
+				</div>
+			</div>     
+		</div>
+
+		
+	</div>
+
+</div>

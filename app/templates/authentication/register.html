@@ -1,0 +1,173 @@
+<div id="register-wrapper">
+    <div data-ng-cloak>
+        <div class="container-fluid container" ng-show="showRegistrationForm" id="register-page">
+            <div class="row">
+                <div class="col-xs-10 col-sm-8 col-md-8 center">
+                    <div class="register-form-wrapper">
+                        <h2 class="text-center text-uppercase red">Join</h2>
+                        <!-- <p class="text-center">Ultimate fantasy Football League</p> -->
+                        <!-- <div class="form-logo-wrapper center text-center">
+                            <img src="images/draftbracketlogopng.png" class="form-logo" alt="logo"/>
+                        </div> -->
+                        <form class="form-horizontal" name="registerCtrl.form">
+                            <fieldset>
+                                <div class="form-group" show-errors>
+                                    <div class="col-xs-12">
+                                        <input name="name" ng-model="user.name" class="form-control" maxlength="255" ng-required="true" placeholder="Name" />
+                                        <div ng-show="registerCtrl.form.$submitted || registerCtrl.form.name.$touched">
+                                            <span ng-show="registerCtrl.form.name.$error.required" class="help-block">Name is missing</span>
+                                            <span ng-show="registerCtrl.form.name.$error.minlength" class="help-block">Name is too short</span>
+                                            <span ng-show="registerCtrl.form.name.$error.maxlength" class="help-block">Name is too long</span>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xs-1 text-center">
+                                        <i class="fa fa-info-circle" uib-tooltip="Choose a nickname or a name you're commonly referred to as - this is what the other managers in your league will use to find your drafts. Cannot use the same name as any other commissioners." tooltip-trigger="mouseenter" tooltip-append-to-body="true"></i>
+                                    </div> -->
+                                </div>
+                                <div class="form-group" show-errors>
+                                    <div class="col-xs-12">
+                                        <!-- <input name="email" ng-model="user.email" type="email" class="form-control" maxlength="255" ng-required="true" placeholder="Email" autofocus /> -->
+                                        <input name="email" ng-model="user.email" type="email" class="form-control" maxlength="255" ng-required="true" placeholder="Email" />
+                                        <div ng-show="registerCtrl.form.$submitted || registerCtrl.form.email.$touched">
+                                            <span ng-show="registerCtrl.form.email.$error.required" class="help-block">Email is missing</span>
+                                            <span ng-show="registerCtrl.form.email.$error.email" class="help-block">Email is invalid</span>
+                                            <span ng-show="registerCtrl.form.email.$error.maxlength" class="help-block">Email is too long</span>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xs-1 text-center">
+                                        <i class="fa fa-info-circle" uib-tooltip="You must choose an email that hasn't been used for other commish accounts. You'll also need access to the account to verify your account once it's been created." tooltip-trigger="mouseenter"  tooltip-append-to-body="true"></i>
+                                    </div> -->
+                                </div>
+                                <div class="form-group" show-errors>
+                                    <div class="col-xs-12">
+                                        <input name="username" ng-model="user.username" class="form-control" maxlength="255" ng-required="true" placeholder="Username" />
+                                        <div ng-show="registerCtrl.form.$submitted || registerCtrl.form.name.$touched">
+                                            <span ng-show="registerCtrl.form.name.$error.required" class="help-block">Username is missing</span>
+                                            <span ng-show="registerCtrl.form.name.$error.minlength" class="help-block">Username is too short</span>
+                                            <span ng-show="registerCtrl.form.name.$error.maxlength" class="help-block">Username is too long</span>
+                                            <span ng-show="registerCtrl.form.name.$error.spaces" class="help-block">Username cannot contain spaces</span>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xs-1 text-center">
+                                        <i class="fa fa-info-circle" uib-tooltip="Choose a nickname or a name you're commonly referred to as - this is what the other managers in your league will use to find your drafts. Cannot use the same name as any other commissioners." tooltip-trigger="mouseenter" tooltip-append-to-body="true"></i>
+                                    </div> -->
+                                </div>
+                                <div class="form-group" show-errors>
+                                    <div class="col-xs-12">
+                                        <input name="password" ng-model="user.password" uib-tooltip="Capslock is on" tooltip-trigger="focus" tooltip-enable="isCapsLockOn" class="form-control" minlength="8" maxlength="255" type="{{registerCtrl.passwordInputType()}}" ng-required="true" placeholder="Password" />
+                                        <div ng-show="registerCtrl.form.$submitted || registerCtrl.form.password.$touched">
+                                            <span ng-show="registerCtrl.form.password.$error.required" class="help-block">Password is missing</span>
+                                            <span ng-show="!registerCtrl.form.password.$error.required && registerCtrl.form.password.$error.minlength" class="help-block">Password is too short - 8 characters minimum</span>
+                                            <span ng-show="registerCtrl.form.password.$error.maxlength" class="help-block">Password is too long</span>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xs-3 text-right">
+                                        <toggle-switch name="showPassword" ng-model="showPassword" knob-label="Show"></toggle-switch>
+                                    </div> -->
+                                </div>
+                                <div class="form-group" show-errors>
+                                    <div class="col-xs-12">
+                                        <input name="confirmedPassword" uib-tooltip="Capslock is on" tooltip-trigger="focus" tooltip-enable="isCapsLockOn" ng-model="user.confirmedPassword" class="form-control" minlength="8" maxlength="255" type="{{registerCtrl.passwordInputType()}}" ng-required="true" placeholder="Confirm Password" match="user.password" />
+                                        <div ng-show="registerCtrl.form.$submitted || registerCtrl.form.password.$touched">
+                                            <span ng-show="registerCtrl.form.confirmedPassword.$error.required" class="help-block">You must confirm your password</span>
+                                            <span ng-show="registerCtrl.form.confirmedPassword.$error.match" class="help-block">Passwords do not match.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" show-errors>
+                                    <!-- <div class="col-xs-3 text-right"> -->
+                                        <!-- <label class="control-label" for="dob">
+                                            <span class="text-danger">*</span>
+                                            Date of Birth
+                                        </label> -->
+                                    <!-- </div> -->
+                                    <div class="col-xs-12 dob-day-month-year">
+                                        <!-- <div id="dob-year" class="input-wrapper small-4 columns" style="padding-left: 0;"> -->
+                                            <label class="control-label col-sm-6 dob-label" for="dob">
+                                                <!-- <span class="text-danger">*</span> -->
+                                                Date of Birth
+                                            </label>
+                                            <select class="form-control dob-control" name="year" id="year" ng-model="year" ng-options="y for y in years" ng-change="registerCtrl.updateDate('year')"  required>
+                                                <option value='' disabled>Year</option>
+                                            </select>
+                                        <!-- </div> -->
+                                        <!-- <div id="dob-month" class="input-wrapper small-4 columns"> -->
+                                            <select class="form-control dob-control" name="month" id="month" ng-model="month" ng-options="m.name for m in months " ng-change="registerCtrl.updateDate('month')"  required>
+                                                <option value='' disabled>Month</option>
+                                            </select>
+                                        <!-- </div> -->
+                                        <!-- <div id="dob-day" class="input-wrapper small-4 columns" style="padding-right: 0;"> -->
+                                            <select class="form-control dob-control" name="day" id="day" ng-model="day" ng-options="d for d in days " ng-change="{{registerCtrl.updateDate('day')}}" required>
+                                                <option value='' disabled>Day</option>
+                                            </select>
+                                        <!-- </div> -->
+                                        <div ng-show="registerCtrl.form.$submitted || registerCtrl.form.name.$touched">
+                                            <span ng-show="registerCtrl.form.name.$error.required" class="help-block">Date of Birth is missing</span>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xs-1 text-center">
+                                        <i class="fa fa-info-circle" uib-tooltip="Choose a nickname or a name you're commonly referred to as - this is what the other managers in your league will use to find your drafts. Cannot use the same name as any other commissioners." tooltip-trigger="mouseenter" tooltip-append-to-body="true"></i>
+                                    </div> -->
+                                </div>
+                                <div class="form-group" show-errors>
+                                    <div class="col-xs-12 col-sm-3">
+                                        <label class="control-label" for="confirmedPassword">
+                                            <span class="text-danger">*</span>Human?
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9">
+										<div class="recaptcha-box-wrap">
+                                        <div  class="recaptcha-box" vc-recaptcha theme="light" key="recaptchaPublicKey" on-success="setRecaptchaResponse(response)"></div>
+										</div>
+                                    </div> 
+                                </div>
+                                
+                                <button type="submit" id="register-btn" class="btn btn-success btn-large btn-lg text-uppercase zan-lg-btn red-bg" ng-click="registerCtrl.submitClicked()" ng-submit="registerCtrl.submitClicked()" ng-disabled="registerCtrl.registerFormIsInvalid()">
+                                    Join
+                                </button>
+
+                                <div class="checkbox">
+                                    <label class="red text-center">By clicking the Join button, you agree to our updated <a href="/privacy-policy" target="_blank">Privacy Policy</a> and our <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a>.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid" ng-hide="showRegistrationForm">
+            <div class="row">
+                <div class="col-xs-1 col-sm-2 col-md-3"></div>
+                <div class="col-xs-10 col-sm-8 col-md-6">
+                    <h2 class="text-center">Registration Almost Complete!</h2>
+                    <p>
+                        <strong>{{newUserName}}</strong>,
+                    </p>
+                    <p>
+                        Your registration is almost complete. 
+                    </p>
+                    <p>
+                        Before you can begin participating in Draft Brackets  you must verify the email address that you just signed up with.  Shortly, you will be receiving an email at <strong>{{newUserEmail}}</strong> with a link to verify your email and your Draft Brackets  account.  Please follow instructions on email to complete verification process.
+                    </p>
+                    <p>
+                        If you did not receive an email within 5 minutes, please contact <a class="red" href="mailto:support@draftbrackets.com">support@draftbrackets.com</a>
+                    </p>
+                    <p>
+                        Thanks for playing!
+                    </p>
+                </div>
+                <div class="col-xs-1 col-sm-2 col-md-3">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="signin-btn col-md-6 text-center center">
+            <a class="btn btn-success btn-lg" role="button" href="login">
+                ALREADY HAVE AN ACCOUNT? <span>LOG IN</span>
+            </a>
+        </div>
+    </div>
+</div>
+    <script src="//www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" ></script>

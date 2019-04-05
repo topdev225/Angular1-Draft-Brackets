@@ -1,0 +1,19 @@
+<div class="champion-wrap" ng-show="(results.winner > 0 && results.winner == team.id && highlight.goldId === team.id && match.meta.matchType === 'finals')">
+<div class="team">
+	
+	<span class="teamname" >{{ (description.length > 0 && !teamdetails.name) | iif : description : ((teamdetails.name.length === 0) | iif : '(No name)' : teamdetails.name) }}</span>
+	
+	 
+</div> 
+<span class="champion-text">Champion</span>
+</div>
+
+<div class="team {{match.meta.match_color}}" ng-mouseenter="highlightTrack(team.id)" ng-mouseleave="highlightTrack()" ng-class="{empty: (!team.id || 0 === team.id.length), highlight: (highlight.teamId === team.id), loser: (results.loser > 0 && results.loser == team.id), winner: (results.winner > 0 && results.winner == team.id), gold: (highlight.goldId === team.id), silver: (highlight.silverId === team.id), bronze: (highlight.bronzeId === team.id), finals: ((match.meta.matchType === 'finals' && !prop.finals2C1) || (match.meta.matchType === 'finals2' && prop.finals2C1) || match.meta.matchType === 'bronze')}" ng-init="status='uneditable'" ng-switch="status">
+	 <div class="real-seed-first">{{team.seed}}</div>
+		<!--<img class="flag" src="{{uploadPath}}{{teamdetails.flag}}" />-->
+		
+	<span class="teamname" ng-switch-default team-context-menu ng-dblclick="editTeam()">{{ (description.length > 0 && !teamdetails.name) | iif : description : ((teamdetails.name.length === 0) | iif : '(No name)' : teamdetails.name) }}</span>
+	<input class="teamInput" ng-switch-when="editable" ng-blur="endEditTeam()" do-focus="" type="text" ng-model="teamdetails.name"></input>
+	<score team="team" match="match" results="results"></score>
+	
+</div>
